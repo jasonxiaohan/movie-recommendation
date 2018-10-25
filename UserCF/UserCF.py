@@ -139,8 +139,6 @@ class UserBasedCF():
         for i,user in enumerate(self.trainSet):
             test_moives = self.testSet.get(user, {})
             rec_moives = self.recommend(user)
-            # print("用户:"+user)
-            # print(rec_moives)
 
             for movie,w in rec_moives:
                 if movie in  test_moives:
@@ -165,6 +163,5 @@ if __name__ == '__main__':
     user_id = input('您要向哪位用户进行推荐？请输入用户编号:')
     sortedResult = userCF.recommend(user_id)
     for movieid,score in sortedResult:
-        # movies = movie_dataset[str(movieid)]
         print("评分：%.2f，电影名称：%s" % (score, movie_dataset[str(movieid)]['title']))
 
